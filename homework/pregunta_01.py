@@ -15,11 +15,12 @@ def pregunta_01():
     zip_path = "files/input.zip"
     extract_dir = "files"
 
+    # Descomprime el archivo (crea files/input/...)
     with zipfile.ZipFile(zip_path, "r") as zf:
         zf.extractall(extract_dir)
 
     input_dir = os.path.join(extract_dir, "input")
-    output_dir = "output"
+    output_dir = os.path.join(extract_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
 
     for split in ("train", "test"):
