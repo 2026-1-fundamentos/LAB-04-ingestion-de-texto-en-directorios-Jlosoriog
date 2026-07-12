@@ -34,7 +34,7 @@ def pregunta_01():
                 fpath = os.path.join(sentiment_dir, fname)
                 with open(fpath, encoding="utf-8") as f:
                     phrase = f.read().strip()
-                rows.append({"phrase": phrase, "sentiment": sentiment})
+                rows.append({"phrase": phrase, "target": sentiment})
 
-        df = pd.DataFrame(rows, columns=["phrase", "sentiment"])
+        df = pd.DataFrame(rows, columns=["phrase", "target"])
         df.to_csv(os.path.join(output_dir, f"{split}_dataset.csv"), index=False)
